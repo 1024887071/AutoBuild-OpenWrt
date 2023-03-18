@@ -39,7 +39,7 @@ jobs:
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        patch -p1 < "${GITHUB_WORKSPACE}/patches/1806-modify_for_r4s.patch"
+     #  patch -p1 < "${GITHUB_WORKSPACE}/patches/1806-modify_for_r4s.patch"
         
      #- name: Import external feeds - passwall
      #  working-directory: ./openwrt
