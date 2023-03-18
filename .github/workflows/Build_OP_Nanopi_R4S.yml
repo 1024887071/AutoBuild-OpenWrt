@@ -7,7 +7,7 @@ on:
 
 jobs:
   OpenWrt:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -67,7 +67,7 @@ jobs:
         cd "/home/runner/openwrt"
         make -j1 V=s
         mv -f "bin/targets/rockchip/armv8/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz" "../immortalwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz"
-        mv -f "bin/targets/rockchip/armv8/sha256sums" "../immortalwrt-18.06-sha256sums"
+        mv -f "bin/targets/rockchip/armv8/sha256sums" "../immortalwrt-sha256sums"
     - name: Upload OpenWrt SHA256SUM Hash
       uses: actions/upload-artifact@v2
       with:
