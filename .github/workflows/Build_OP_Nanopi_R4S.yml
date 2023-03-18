@@ -82,7 +82,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz
-        path: /home/runner/immortalwrt-18.06-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz
+        path: /home/runner/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz
     - name: Upload OpenWrt IPK Packages
       uses: actions/upload-artifact@v2
       with:
