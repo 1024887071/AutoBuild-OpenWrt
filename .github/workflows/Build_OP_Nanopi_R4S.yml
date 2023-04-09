@@ -43,15 +43,13 @@ jobs:
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        git clone https://github.com/jerrykuku/luci-theme-argon.git package
-        git clone https://github.com/jerrykuku/luci-app-argon-config package
      #  patch -p1 < "${GITHUB_WORKSPACE}/patches/1806-modify_for_r4s.patch"
-        
-     #- name: Import external feeds - passwall
-     #  working-directory: ./openwrt
-     #  run: |
-     #    git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-     #    git clone "your_github_link" package/"your_folder_name"      
+     
+    - name: Import external feeds
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package/argon
+        git clone https://github.com/jerrykuku/luci-app-argon-config package/argon-config     
 
      #- name: Import external feeds - JerryKuKu Argon
      #  working-directory: ./openwrt
