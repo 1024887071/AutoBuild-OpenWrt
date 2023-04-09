@@ -33,9 +33,13 @@ jobs:
     - name: Clone Source
       run: |
         cd "/home/runner"
-        git clone --branch "openwrt-18.06-k5.4" --single-branch "https://github.com/immortalwrt/immortalwrt" "openwrt"
+        git clone --branch "stable" --single-branch "https://github.com/DHDAXCW/lede-rockchip" "openwrt"
         sudo chown -R runner:runner "openwrt"
         cd "/home/runner/openwrt"
+        echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+        echo 'src-git passwallyl https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+        echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall;luci' >>feeds.conf.default
+        echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
