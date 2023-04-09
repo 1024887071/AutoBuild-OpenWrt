@@ -54,15 +54,13 @@ jobs:
         REPO_URL: https://github.com/Lienol/openwrt
         REPO_BRANCH: 21.02
       run: |
-        git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        git clone -b $REPO_BRANCH --single-branch $REPO_URL
         cd openwrt
         echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
         echo 'src-git passwallyl https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
         echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall;luci' >>feeds.conf.default
         echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
-        git clone https://github.com/jerrykuku/luci-theme-argon.git package
-        git clone https://github.com/jerrykuku/luci-app-argon-config package
     #   echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
         
@@ -73,11 +71,11 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    #- name: Import external feeds - passwall
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-    #    git clone "your_github_link" package/"your_folder_name"      
+    - name: Import external feeds - passwall
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package
+        git clone https://github.com/jerrykuku/luci-app-argon-config package
 
     #- name: Import external feeds - JerryKuKu Argon
     #  working-directory: ./openwrt
