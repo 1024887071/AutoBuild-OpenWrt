@@ -33,7 +33,7 @@ jobs:
     - name: Clone Source
       run: |
         cd "/home/runner"
-        git clone --branch "stable" --single-branch "https://github.com/DHDAXCW/lede-rockchip" "openwrt"
+        git clone -b stable --single-branch https://github.com/DHDAXCW/lede-rockchip "openwrt"
         sudo chown -R runner:runner "openwrt"
         cd "/home/runner/openwrt"
         echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
