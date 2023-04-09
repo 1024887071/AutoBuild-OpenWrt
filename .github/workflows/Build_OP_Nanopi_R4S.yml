@@ -104,18 +104,3 @@ jobs:
       with:
         name: OpenWrt
         path: openwrt/bin
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-AutoBuild-OpenWrt/Build_OP_x86_64.yml at master · 990052053/AutoBuild-OpenWrt
