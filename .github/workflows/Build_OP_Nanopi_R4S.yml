@@ -43,8 +43,8 @@ jobs:
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        git clone https://github.com/jerrykuku/luci-theme-argon.git openwrt/package
-        git clone https://github.com/jerrykuku/luci-app-argon-config openwrt/package
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package
+        git clone https://github.com/jerrykuku/luci-app-argon-config package
      #  patch -p1 < "${GITHUB_WORKSPACE}/patches/1806-modify_for_r4s.patch"
         
      #- name: Import external feeds - passwall
