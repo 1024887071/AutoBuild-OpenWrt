@@ -61,6 +61,8 @@ jobs:
         echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall;luci' >>feeds.conf.default
         echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package
+        git clone https://github.com/jerrykuku/luci-app-argon-config package
     #   echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
         
