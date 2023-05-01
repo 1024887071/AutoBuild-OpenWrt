@@ -54,12 +54,12 @@ jobs:
         REPO_URL: https://github.com/immortalwrt/immortalwrt
         REPO_BRANCH: openwrt-21.02
       run: |
-        git clone -b $REPO_BRANCH --single-branch $REPO_URL immortalwrt
-        cd immortalwrt
+        git clone -b $REPO_BRANCH --single-branch $REPO_URL openwrt
+        cd openwrt
         echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
      
     - name: Update & Install feeds
-      working-directory: ./immortalwrt
+      working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
@@ -78,23 +78,23 @@ jobs:
       env:
         CONFIG_FILE: 'X86.config'
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE immortalwrt/.config
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
-        cd immortalwrt && make defconfig
+        cd openwrt && make defconfig
         
     - name: Download package
-      working-directory: ./immortalwrt
+      working-directory: ./openwrt
       run: |
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
     - name: Build firmware
-      working-directory: ./immortalwrt
+      working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: immortalwrt
-        path: immortalwrt/bin
+        name: openwrt
+        path: openwrt/bin
