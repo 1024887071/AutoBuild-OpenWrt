@@ -62,7 +62,6 @@ jobs:
         echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
         echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
-        echo 'src-git fileassistant https://github.com/kenzok78/luci-app-fileassistant' >>feeds.conf.default
     #   echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
         
@@ -72,10 +71,10 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-    #- name: Import external feeds - passwall
-      #working-directory: ./lede-rockchip
-      #run: |
-        #git clone https://github.com/jerrykuku/luci-theme-argon.git package/argon
+    - name: Import external feeds - file
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/kenzok78/luci-app-fileassistant package/lean/fileassistant
         #git clone https://github.com/jerrykuku/luci-app-argon-config package/argon-config
     #- name: Import external feeds - JerryKuKu Argon
     #  working-directory: ./lede-rockchip
