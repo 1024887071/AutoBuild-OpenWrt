@@ -51,12 +51,17 @@ jobs:
         sudo -E apt-get clean
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/immortalwrt/immortalwrt
-        REPO_BRANCH: openwrt-21.02
+        REPO_URL: https://github.com/Lienol/openwrt
+        REPO_BRANCH: 21.02
       run: |
         git clone -b $REPO_BRANCH --single-branch $REPO_URL openwrt
         cd openwrt
+        echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+        echo 'src-git passwallyl https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+        echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall;luci' >>feeds.conf.default
         echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
+        echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
+        echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
      
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -64,11 +69,12 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-    #- name: Import external feeds - passwall
-      #working-directory: ./immortalwrt
-      #run: |
-        #git clone https://github.com/jerrykuku/luci-theme-argon.git package/argon
-        #git clone https://github.com/jerrykuku/luci-app-argon-config package/argon-config
+    - name: Import external feeds - passwall
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/jerrykuku/luci-app-argon-config package/argonconfig
+    # git clone https://github.com/jerrykuku/luci-app-argon-config package/argon-config
+    
     #- name: Import external feeds - JerryKuKu Argon
     #  working-directory: ./lede-rockchip
     #  run: |
