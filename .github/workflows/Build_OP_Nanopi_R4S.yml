@@ -62,6 +62,7 @@ jobs:
         echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
         echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
+        echo 'src-git fileassistant https://github.com/kenzok78/luci-app-fileassistant' >>feeds.conf.default
     #   echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
         
