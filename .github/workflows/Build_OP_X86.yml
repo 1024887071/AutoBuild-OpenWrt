@@ -69,7 +69,7 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-    - name: Import external feeds - passwall
+    - name: Import external feeds - argonconfig
       working-directory: ./openwrt
       run: |
         git clone https://github.com/jerrykuku/luci-app-argon-config package/argonconfig
