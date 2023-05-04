@@ -71,7 +71,7 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-    - name: Import external feeds - file
+    - name: Import external feeds - fileassistant
       working-directory: ./openwrt
       run: |
         git clone https://github.com/kenzok78/luci-app-fileassistant package/lean/fileassistant
