@@ -71,11 +71,12 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-    - name: Import external feeds - argonconfig
+    - name: Import external feeds - argon
       working-directory: ./openwrt
       run: |
-        git clone https://github.com/jerrykuku/luci-app-argon-config package/argonconfig
-    # git clone https://github.com/jerrykuku/luci-app-argon-config package/argon-config
+        rm -rf openwrt\feeds\luci\themes\luci-theme-argon
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package/argon
+        git clone https://github.com/jerrykuku/luci-app-argon-config package/argon-config
     
     #- name: Import external feeds - JerryKuKu Argon
     #  working-directory: ./lede-rockchip
