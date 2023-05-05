@@ -74,7 +74,7 @@ jobs:
     - name: Import external feeds - argon
       working-directory: ./openwrt
       run: |
-        rm -rf openwrt\feeds\luci\themes\luci-theme-argon
+        rm -rf openwrt/feeds/luci/themes/luci-theme-argon
         git clone https://github.com/jerrykuku/luci-theme-argon.git package/argon
         git clone https://github.com/jerrykuku/luci-app-argon-config package/argon-config
     
