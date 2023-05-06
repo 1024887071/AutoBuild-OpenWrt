@@ -83,7 +83,7 @@ jobs:
     
     - name: Configuration Customization - Build_X86
       env:
-        CONFIG_FILE: 'X86.config'
+        CONFIG_FILE: 'X86IS.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize1.sh && ./customize1.sh
