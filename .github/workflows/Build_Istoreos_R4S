@@ -6,7 +6,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Build_Istoreos_R4S
+name: Build_OP_Nanopi_R4S
 
 # Add a button to trigger the workflow
 on: 
@@ -51,8 +51,8 @@ jobs:
         sudo -E apt-get clean
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/istoreos/istoreos
-        REPO_BRANCH: main
+        REPO_URL: https://github.com/DHDAXCW/lede-rockchip
+        REPO_BRANCH: stable
       run: |
         git clone -b $REPO_BRANCH --single-branch $REPO_URL openwrt
         cd openwrt
@@ -62,31 +62,34 @@ jobs:
         echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
         echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
         echo 'src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
+        echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
         echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
         echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
-       
+    #   echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
+        
+        
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-      
-    #- name: Import external feeds - argon
-     # working-directory: ./openwrt
-      #run: |
-        #git clone
+              
+    #- name: Import external feeds - fileassistant
+    #  working-directory: ./openwrt
+    #  run: |
+    #    git clone https://github.com/kenzok78/luci-app-fileassistant package/lean/fileassistant
     
     #- name: Import external feeds - JerryKuKu Argon
     #  working-directory: ./lede-rockchip
     #  run: |
     #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
     
-    - name: Configuration Customization - Build_XR4S
+    - name: Configuration Customization - Build_Nanopi_R4S
       env:
-        CONFIG_FILE: 'R4SIS.config'
+        CONFIG_FILE: 'R4S.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize1.sh && ./customize1.sh
+        chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
         
     - name: Download package
