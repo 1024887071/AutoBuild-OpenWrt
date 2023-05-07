@@ -81,7 +81,7 @@ jobs:
 
     - name: Configuration Customization - Build_Immortalwrt_x86_64
       env:
-        CONFIG_FILE: 'ITW_x86.config'
+        CONFIG_FILE: 'IWT_x86.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize3.sh && ./customize3.sh
