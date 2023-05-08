@@ -86,10 +86,10 @@ jobs:
 
     - name: Configuration Customization - Build_OP_x86_64
       env:
-        CONFIG_FILE: 'OP_x86.config'
+        CONFIG_FILE: 'config/lienol/X86.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize1.sh && ./customize1.sh
+        chmod +x ./customize3.sh && ./customize3.sh
         cd openwrt && make defconfig
         
     - name: Download package
@@ -108,5 +108,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt
+        name: L_Openwrt_X86
         path: openwrt/bin
