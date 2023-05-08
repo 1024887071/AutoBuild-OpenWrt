@@ -86,10 +86,10 @@ jobs:
 
     - name: Configuration Customization - Build_DHDAXCW_R4S
       env:
-        CONFIG_FILE: 'DHDAXCW_R4S.config'
+        CONFIG_FILE: 'config/dhdaxcw/R4S.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize.sh && ./customize.sh
+        chmod +x ./customize4.sh && ./customize4.sh
         cd openwrt && make defconfig
         
     - name: Download package
@@ -108,5 +108,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt
+        name: Lede_Rockchip_R4S
         path: openwrt/bin
