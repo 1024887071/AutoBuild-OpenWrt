@@ -85,7 +85,7 @@ jobs:
 
     - name: Configuration Customization - Build_LEDE_R4S
       env:
-        CONFIG_FILE: 'LEDE_R4S.config'
+        CONFIG_FILE: 'config/lean/R4S.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize2.sh && ./customize2.sh
@@ -107,5 +107,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt
+        name: Lede_R4S
         path: openwrt/bin
