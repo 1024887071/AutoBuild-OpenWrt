@@ -104,5 +104,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: immortalWrt
+        name: ImmortalWrt_R4S
         path: openwrt/bin
