@@ -5,6 +5,9 @@
 # Author: eSirPlayground
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
+
+# DHDAXCW-lede-rockchip
+
 # 1. Modify default IP
 sed -i 's/192.168.1.1/192.168.2.100/g' openwrt/package/base-files/files/bin/config_generate
 
