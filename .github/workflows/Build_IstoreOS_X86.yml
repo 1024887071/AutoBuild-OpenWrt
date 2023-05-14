@@ -108,5 +108,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Linkease_IstoreOS_X86
+        name: IstoreOS_X86
         path: openwrt/bin
