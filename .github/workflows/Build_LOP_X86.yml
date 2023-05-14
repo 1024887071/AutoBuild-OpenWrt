@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Build_OP_x86_64
+name: Build_LOP_x86
 
 # Add a button to trigger the workflow
 on: 
@@ -84,7 +84,7 @@ jobs:
     #  run: |
     #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
 
-    - name: Configuration Customization - Build_OP_x86_64
+    - name: Configuration Customization - Build_OP_x86
       env:
         CONFIG_FILE: 'config/lienol/X86.config'
       run: |
