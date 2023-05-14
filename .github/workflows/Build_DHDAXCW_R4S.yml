@@ -108,5 +108,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Lede_Rockchip_R4S
+        name: DHDAXCW_Rockchip_R4S
         path: openwrt/bin
