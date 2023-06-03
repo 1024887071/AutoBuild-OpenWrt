@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Build_LOP_x86
+name: Build_IstoreOS_R4S
 
 # Add a button to trigger the workflow
 on: 
@@ -51,20 +51,19 @@ jobs:
 
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/Lienol/openwrt
-        REPO_BRANCH: 21.02
+        REPO_URL: https://github.com/istoreos/istoreos
+        REPO_BRANCH: main
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default
-        echo "src-git passwallyl https://github.com/xiaorouji/openwrt-passwall" >> ./feeds.conf.default
-        echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall;luci" >> ./feeds.conf.default
-        echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2" >> ./feeds.conf.default
-        echo "src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go" >> ./feeds.conf.default
-        echo "src-git istore https://github.com/linkease/istore;main" >> ./feeds.conf.default
-        echo "src-git nas https://github.com/linkease/nas-packages.git;master" >> ./feeds.conf.default
         echo "src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main" >> ./feeds.conf.default
-        echo "src-git openclash https://github.com/vernesong/OpenClash;master" >> ./feeds.conf.default
+        echo "src-git nas https://github.com/linkease/nas-packages.git;master" >> ./feeds.conf.default
+     #   echo "src-git openclash https://github.com/vernesong/OpenClash;master" >> ./feeds.conf.default
+     #   echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default
+     #   echo "src-git passwallyl https://github.com/xiaorouji/openwrt-passwall" >> ./feeds.conf.default
+     #   echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall;luci" >> ./feeds.conf.default
+     #   echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2" >> ./feeds.conf.default
+     
         
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -84,12 +83,12 @@ jobs:
     #  run: |
     #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
 
-    - name: Configuration Customization - Build_LOP_x86
+    - name: Configuration Customization - Build_IstoreOS_R4S
       env:
-        CONFIG_FILE: 'config/lienol/X86.config'
+        CONFIG_FILE: 'config/linkease/R4S.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize3.sh && ./customize3.sh
+        chmod +x ./customize5.sh && ./customize5.sh
         cd openwrt && make defconfig
         
     - name: Download package
@@ -108,5 +107,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Lienol_X86
+        name: IstoreOS_R4S
         path: openwrt/bin
