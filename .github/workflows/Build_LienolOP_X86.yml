@@ -53,13 +53,13 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/Lienol/openwrt
-        REPO_BRANCH: 21.02
+        REPO_BRANCH: 23.05
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         echo "src-git helloworld https://github.com/fw876/helloworld" >> ./feeds.conf.default
         echo "src-git passwallyl https://github.com/xiaorouji/openwrt-passwall" >> ./feeds.conf.default
-        echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall;luci" >> ./feeds.conf.default
+        echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall-packages" >> ./feeds.conf.default
         echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2" >> ./feeds.conf.default
         echo "src-git ddnsgo https://github.com/sirpdboy/luci-app-ddns-go" >> ./feeds.conf.default
         echo "src-git istore https://github.com/linkease/istore;main" >> ./feeds.conf.default
