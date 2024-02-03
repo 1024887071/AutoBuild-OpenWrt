@@ -90,7 +90,7 @@ jobs:
         CONFIG_FILE: 'config/lienol/X86.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize5.sh && ./customize5.sh
+        chmod +x ./customize3.sh && ./customize3.sh
         cd openwrt && make defconfig
         
     - name: Download package
