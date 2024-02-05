@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: 释放磁盘空间
-      uses: jlumbroso/free-disk-space@master
+      uses: jlumbroso/free-disk-space@main
       with:
         # this might remove tools that are actually needed,
         # if set to "true" but frees about 6 GB
