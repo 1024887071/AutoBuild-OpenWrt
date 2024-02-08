@@ -77,9 +77,7 @@ jobs:
         echo "src-git istore https://github.com/linkease/istore;main" >> ./feeds.conf.default
         echo "src-git nas https://github.com/linkease/nas-packages.git;master" >> ./feeds.conf.default
         echo "src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main" >> ./feeds.conf.default
-        echo "src-git argon https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon" >> ./feeds.conf.default
-        echo "src-git argon_config https://github.com/jerrykuku/luci-app-argon-config.git" >> ./feeds.conf.default
-        
+         
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
@@ -88,15 +86,16 @@ jobs:
         df -hT $PWD
 
     #- name: Import external feeds - passwall
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-    #    git clone "your_github_link" package/"your_folder_name"      
+      #working-directory: ./openwrt
+      #run: |
+        #git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
+        #git clone "your_github_link" package/"your_folder_name"      
 
-    #- name: Import external feeds - JerryKuKu Argon
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
+    - name: Import external feeds - JerryKuKu Argon
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon
+        git clone https://github.com/jerrykuku/luci-app-argon-config.git luci-app-argon-config
 
     - name: Configuration Customization - Build_LienolOP_x86
       env:
