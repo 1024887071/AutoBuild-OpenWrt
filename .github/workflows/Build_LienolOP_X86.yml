@@ -97,8 +97,8 @@ jobs:
     - name: Import external feeds - JerryKuKu Argon
       working-directory: ./openwrt
       run: |
-        git clone https://github.com/jerrykuku/luci-theme-argon.git package/argon
-        git clone https://github.com/jerrykuku/luci-app-argon-config.git package/argon_config
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+        git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
     - name: Configuration Customization - Build_LienolOP_x86
       env:
