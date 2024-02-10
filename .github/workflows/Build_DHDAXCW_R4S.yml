@@ -104,7 +104,7 @@ jobs:
         CONFIG_FILE: 'config/DHDAXCW/R4S.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize4.sh && ./customize4.sh
+        chmod +x ./customize3.sh && ./customize3.sh
         cd openwrt && make defconfig
         
     - name: Download package
