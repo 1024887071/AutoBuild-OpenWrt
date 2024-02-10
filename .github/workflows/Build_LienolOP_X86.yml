@@ -72,11 +72,11 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        echo "src-git passwallyl https://github.com/xiaorouji/openwrt-passwall-packages" >> ./feeds.conf.default
-        echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall" >> ./feeds.conf.default
-        echo "src-git istore https://github.com/linkease/istore;main" >> ./feeds.conf.default
-        echo "src-git nas https://github.com/linkease/nas-packages.git;master" >> ./feeds.conf.default
-        echo "src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main" >> ./feeds.conf.default
+        #echo "src-git passwallyl https://github.com/xiaorouji/openwrt-passwall-packages" >> ./feeds.conf.default
+        #echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall" >> ./feeds.conf.default
+        #echo "src-git istore https://github.com/linkease/istore;main" >> ./feeds.conf.default
+        #echo "src-git nas https://github.com/linkease/nas-packages.git;master" >> ./feeds.conf.default
+        #echo "src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main" >> ./feeds.conf.default
          
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -96,6 +96,11 @@ jobs:
       run: |
         git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
         git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
+        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+        git clone -b master --single-branch https://github.com/linkease/nas-packages.git package/nas
+        git clone -b main --single-branch https://github.com/linkease/nas-packages-luci.git package/nas_luci
+        git clone -b main --single-branch https://github.com/linkease/istore package/istore
 
     - name: Configuration Customization - Build_LienolOP_x86
       env:
