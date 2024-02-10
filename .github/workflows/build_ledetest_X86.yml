@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Build_LEDE_x86
+name: Build_TEST_x86
 
 # Add a button to trigger the workflow
 on: 
@@ -117,5 +117,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Lede_X86
+        name: LedeTest_X86
         path: openwrt/bin
