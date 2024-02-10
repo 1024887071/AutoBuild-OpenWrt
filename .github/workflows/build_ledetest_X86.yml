@@ -95,7 +95,7 @@ jobs:
 
     - name: Configuration Customization - Build_LEDE_x86
       env:
-        CONFIG_FILE: 'config/lean/X86.config'
+        CONFIG_FILE: 'config/test/X86.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize5.sh && ./customize5.sh
