@@ -96,7 +96,7 @@ jobs:
         CONFIG_FILE: 'config/test/X861.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize6.sh && ./customize6.sh
+        chmod +x ./customize3.sh && ./customize3.sh
         cd openwrt && make defconfig
         
     - name: Download package
