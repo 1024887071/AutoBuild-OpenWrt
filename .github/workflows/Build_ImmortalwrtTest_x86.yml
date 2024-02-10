@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Build_Immortalwrt_x86
+name: Build_ImmortalwrtTest_x86
 
 # Add a button to trigger the workflow
 on: 
@@ -93,10 +93,10 @@ jobs:
 
     - name: Configuration Customization - Build_Immortalwrt_x86
       env:
-        CONFIG_FILE: 'config/immortal/X86.config'
+        CONFIG_FILE: 'config/test/X861.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./customize1.sh && ./customize1.sh
+        chmod +x ./customize6.sh && ./customize6.sh
         cd openwrt && make defconfig
         
     - name: Download package
@@ -115,5 +115,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Immortalwrt_X86
+        name: ImmortalwrtTest_X86
         path: openwrt/bin
