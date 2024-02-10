@@ -85,22 +85,20 @@ jobs:
         ./scripts/feeds install -a
         df -hT $PWD
 
-    #- name: Import external feeds - passwall
-      #working-directory: ./openwrt
-      #run: |
-        #git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
-        #git clone "your_github_link" package/"your_folder_name"      
+    - name: Import external feeds - passwall
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
+        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+        git clone -b master --single-branch https://github.com/linkease/nas-packages.git package/nas
+        git clone -b main --single-branch https://github.com/linkease/nas-packages-luci.git package/nas_luci
+        git clone -b main --single-branch https://github.com/linkease/istore package/istore
 
     - name: Import external feeds - JerryKuKu Argon
       working-directory: ./openwrt
       run: |
         git clone https://github.com/jerrykuku/luci-theme-argon.git package/argon
         git clone https://github.com/jerrykuku/luci-app-argon-config.git package/argon_config
-        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
-        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-        git clone -b master --single-branch https://github.com/linkease/nas-packages.git package/nas
-        git clone -b main --single-branch https://github.com/linkease/nas-packages-luci.git package/nas_luci
-        git clone -b main --single-branch https://github.com/linkease/istore package/istore
 
     - name: Configuration Customization - Build_LienolOP_x86
       env:
