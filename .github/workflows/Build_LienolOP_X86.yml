@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - name: Checkout
@@ -68,7 +68,7 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://github.com/Lienol/openwrt
-        REPO_BRANCH: main
+        REPO_BRANCH: 22.03
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
@@ -77,6 +77,21 @@ jobs:
         #echo "src-git istore https://github.com/linkease/istore;main" >> ./feeds.conf.default
         #echo "src-git nas https://github.com/linkease/nas-packages.git;master" >> ./feeds.conf.default
         #echo "src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main" >> ./feeds.conf.default
+
+    - name: Import external feeds - passwall
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
+        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+        #git clone -b master --single-branch https://github.com/linkease/nas-packages.git package/nas
+        #git clone -b main --single-branch https://github.com/linkease/nas-packages-luci.git package/nas_luci
+        #git clone -b main --single-branch https://github.com/linkease/istore package/istore
+
+    - name: Import external feeds - JerryKuKu Argon
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+        git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
          
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -84,21 +99,6 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         df -hT $PWD
-
-    - name: Import external feeds - passwall
-      working-directory: ./openwrt
-      run: |
-        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
-        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
-        git clone -b master --single-branch https://github.com/linkease/nas-packages.git package/nas
-        git clone -b main --single-branch https://github.com/linkease/nas-packages-luci.git package/nas_luci
-        git clone -b main --single-branch https://github.com/linkease/istore package/istore
-
-    - name: Import external feeds - JerryKuKu Argon
-      working-directory: ./openwrt
-      run: |
-        git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-        git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
     - name: Configuration Customization - Build_LienolOP_x86
       env:
