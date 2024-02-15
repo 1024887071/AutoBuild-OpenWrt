@@ -70,8 +70,8 @@ jobs:
     - name: Import external feeds - passwall
       working-directory: ./openwrt
       run: |
-        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
-        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+        #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
+        #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
         #git clone -b master --single-branch https://github.com/linkease/nas-packages.git package/nas
         #git clone -b main --single-branch https://github.com/linkease/nas-packages-luci.git package/nas_luci
         #git clone -b main --single-branch https://github.com/linkease/istore package/istore
