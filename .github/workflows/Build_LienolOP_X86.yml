@@ -67,6 +67,13 @@ jobs:
         #echo "src-git nas https://github.com/linkease/nas-packages.git;master" >> ./feeds.conf.default
         #echo "src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main" >> ./feeds.conf.default
 
+    - name: Update & Install feeds
+      working-directory: ./openwrt
+      run: |
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+        df -hT $PWD
+
     - name: Import external feeds - passwall
       working-directory: ./openwrt
       run: |
@@ -80,14 +87,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         #git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-        #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
-         
-    - name: Update & Install feeds
-      working-directory: ./openwrt
-      run: |
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-        df -hT $PWD
+        #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config    
 
     - name: Configuration Customization - Build_LienolOP_x86
       env:
