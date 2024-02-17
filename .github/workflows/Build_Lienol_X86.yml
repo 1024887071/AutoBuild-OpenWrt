@@ -79,8 +79,8 @@ jobs:
     - name: Import external feeds - passwall
       working-directory: ./openwrt
       run: |
-        #git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
-        #git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
+        git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwallyl
+        git clone https://github.com/xiaorouji/openwrt-passwall package/passwall
         #git clone -b master --single-branch https://github.com/linkease/nas-packages.git package/nas
         #git clone -b main --single-branch https://github.com/linkease/nas-packages-luci.git package/nas_luci
         #git clone -b main --single-branch https://github.com/linkease/istore package/istore
@@ -88,8 +88,8 @@ jobs:
     - name: Import external feeds - JerryKuKu Argon
       working-directory: ./openwrt
       run: |
-        #git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-        #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config    
+        git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+        git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config    
 
     - name: Configuration Customization - Build_Lienol_x86
       env:
