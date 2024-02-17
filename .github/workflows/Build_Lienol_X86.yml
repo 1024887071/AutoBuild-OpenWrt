@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Build_LienolOP_x86
+name: Build_Lienol_x86
 
 # Add a button to trigger the workflow
 on: 
@@ -91,7 +91,7 @@ jobs:
         #git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
         #git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config    
 
-    - name: Configuration Customization - Build_LienolOP_x86
+    - name: Configuration Customization - Build_Lienol_x86
       env:
         CONFIG_FILE: 'config/lienol/X86.config'
       run: |
@@ -115,5 +115,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: LienolOP_X86
+        name: Lienol_X86
         path: openwrt/bin
