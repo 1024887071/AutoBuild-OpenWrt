@@ -5,7 +5,7 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: Build_Immortalwrt_R4S
+name: Build_ImmortalWrt_R4S
 
 # Add a button to trigger the workflow
 on: 
@@ -84,7 +84,7 @@ jobs:
     #  run: |
     #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
 
-    - name: Configuration Customization - Build_Immortalwrt_R4S
+    - name: Configuration Customization - Build_ImmortalWrt_R4S
       env:
         CONFIG_FILE: 'config/immortal/R4S.config'
       run: |
