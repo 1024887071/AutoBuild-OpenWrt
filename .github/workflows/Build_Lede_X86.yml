@@ -112,5 +112,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Lede_X86
+        name: LEDE_X86
         path: openwrt/bin
